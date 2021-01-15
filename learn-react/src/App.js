@@ -46,7 +46,7 @@ const app = () => {
 
   return (
     <div className="App">
-      <button onClick={() => buttonHandler("HELLLLOOO")}>Click</button>
+      <button onClick={buttonHandler("HELLLLOOO")}>Click</button>
       {renderPeople()}
     </div>
   );
