@@ -1,0 +1,8 @@
+.ex-image-card{
+    width:300px;
+    display:inline-block;
+}
+
+.ex-image-card img{
+    width:100%;
+}

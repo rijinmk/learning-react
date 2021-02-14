@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import './bootstrap.min.css';
 import ImageCard from './ImageCard/ImageCard';
 import Search from './Search/Search'
@@ -6,20 +6,27 @@ import Search from './Search/Search'
 class App extends Component {
 
   ImageCardsHTML = []; 
-  const [ImageCardState, setImageCardState] = useState(false);
+  
+  state = {
+    ImageCards: []
+  }
 
 
   addCardHandler = (elem) => {
-    let search = document.getElementsByClassName("search")[0]; 
-    this.ImageCardsHTML.push(<ImageCard></ImageCard>);
-    console.log(this.ImageCardsHTML); 
+    let search = document.getElementsByClassName("search")[0].value; 
+    let copyImageCards = [...this.state.ImageCards]; 
+    copyImageCards.push(<ImageCard q={search} key={Math.random() * 999999 + "-" + new Date().getMilliseconds()}></ImageCard>);
+    this.setState({
+      ImageCards: copyImageCards
+    });
+    console.log(copyImageCards); 
   }
 
   render() {
     return (
       <div className="App container mt-3">
         <Search clicked={this.addCardHandler}></Search>
-        {this.ImageCardsHTML}
+        {this.state.ImageCards}
       </div>
     );
   }
