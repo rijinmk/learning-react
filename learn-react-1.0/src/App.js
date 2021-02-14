@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Person from './Person/Person';
+import Radium from 'radium';
+import './Person/Person.css';
 
 class App extends Component {
   state = {
@@ -71,7 +73,7 @@ class App extends Component {
     return (
       <div className="App">
         <input onChange={this.changePeopleName} type="text"/>
-        <button onClick={this.showPeopleToggle}>Show people</button>
+        <button className={this.state.showPeople ? 'danger' : 'nice'} onClick={this.showPeopleToggle}>Show people</button>
         <hr/>
         {this.renderJSXPeople()}
       </div>
@@ -79,4 +81,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
