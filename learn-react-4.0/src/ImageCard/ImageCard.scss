@@ -1,0 +1,59 @@
+$width: 250;
+
+.ex-image-card{
+    width:#{$width}px;
+    height:auto;
+    border:1px solid #eaeaea;
+    background: #fff;
+    border-radius:10px;
+    position: relative;
+
+    transition:box-shadow 0.3s, transform 0.3s;
+
+    &__image{
+        width:#{$width - 2}px;
+        height:#{$width}px;
+        background-size:cover;
+        background-position: center;
+        border-radius:10px;
+        transform-origin: 30px;
+        transition:transform 0.3s ease-in-out;
+        position: relative;
+        z-index: 10;
+
+        &--dummy{
+            width:#{$width - 2}px;
+            height:#{$width}px;
+            position: absolute;
+            top:0px;
+            left:0px;
+            border-radius:10px;
+            // border:1px solid #eee;
+            background:#fafafa;
+            z-index: 1;
+            transform-origin: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+    }
+
+    h2, p{
+        padding:10px 20px;
+    }
+
+    &:hover{
+        cursor: pointer;
+        box-shadow:  20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+        .ex-image-card__image{
+            transform: rotate(-50deg);
+        }
+        .ex-image-card__image--dummy{
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                    transform: rotate(-#{$i * 10}deg);
+                }
+            }
+            
+        }
+    }
+}

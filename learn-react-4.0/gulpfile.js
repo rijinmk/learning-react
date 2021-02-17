@@ -25,7 +25,7 @@ gulp.task('scss-css-components', function(){
 
 gulp.task('combine-css', function(){
     return gulp.src(['./src/libraries.styles.min.css', './src/component.styles.min.css']) 
-               .pipe(concat(`bundle.${new Date() / 1}.css`))
+               .pipe(concat(`bundle.min.css`))
                .pipe(gulp.dest('./src'))
 });
 
