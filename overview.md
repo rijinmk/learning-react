@@ -20,7 +20,7 @@
 
 - `useState()`: Equivalent to `state = {}` from Class Based
 - `useEffect()`: Life-Cycle for functional components
-```
+```javascript
 const [item, setItem] = useState(0); 
 useEffect(() => {
     console.log("Mount"); 
@@ -30,7 +30,7 @@ useEffect(() => {
 }, []); 
 ```
 - `useRef()`
-```
+```javascript
 const buttonRef = useRef(null);
 ...
 useEffect(() => {
