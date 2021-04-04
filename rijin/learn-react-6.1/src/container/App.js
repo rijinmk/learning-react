@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {v4 as uuid} from 'uuid'; 
 import Card from '../components/Card/Card'; 
 import AddCard from '../components/AddCard/AddCard';
+import WithClass from '../HOC/widthClass'; 
 
 class App extends Component {
 
@@ -32,7 +33,7 @@ class App extends Component {
   render() {
     console.log('[App.js] render'); 
     return (
-      <div className="App">
+      <div>
         <AddCard clicked={this.handleAddCard}></AddCard>
         <hr/>
         {this.state.cards}
@@ -41,4 +42,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default WithClass(App, 'OMG_NEW_HOC');
