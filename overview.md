@@ -29,3 +29,13 @@ useEffect(() => {
     }
 }, []); 
 ```
+- `useRef()`
+```
+const buttonRef = useRef(null);
+...
+useEffect(() => {
+    plusBtn.current.click(); 
+}, []); 
+...
+<button ref={buttonRef} />
+```
