@@ -3,6 +3,7 @@ import {v4 as uuid} from 'uuid';
 import Card from '../components/Card/Card'; 
 import AddCard from '../components/AddCard/AddCard';
 import WithClass from '../HOC/widthClass'; 
+import AuthContext from '../context/auth-context'; 
 
 class App extends Component {
 
@@ -10,7 +11,8 @@ class App extends Component {
     super(props);
     console.log('[App.js] constructor'); 
     this.state = {
-      cards: []
+      cards: [], 
+      authenticated: false, 
     }
   }
 
@@ -19,8 +21,11 @@ class App extends Component {
     return state; 
   }
 
+  static contextType = AuthContext; 
+
   componentDidMount(){
     console.log('[App.js] componentDidMount');
+    console.log(this.context); 
   }
 
   handleAddCard = () => {
@@ -34,9 +39,11 @@ class App extends Component {
     console.log('[App.js] render'); 
     return (
       <div>
-        <AddCard clicked={this.handleAddCard}></AddCard>
-        <hr/>
-        {this.state.cards}
+        <AuthContext.Provider value={{authenticated: this.state.authenticated}}>
+          <AddCard clicked={this.handleAddCard}></AddCard>
+          <hr/>
+          {this.state.cards}
+        </AuthContext.Provider>
       </div>
     );
   }

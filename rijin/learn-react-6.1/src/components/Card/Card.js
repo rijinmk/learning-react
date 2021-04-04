@@ -1,5 +1,6 @@
-import React, { Component, useEffect, useState, useRef } from 'react';
+import React, { Component, useEffect, useState, useRef, useContext } from 'react';
 import './Card.css';
+import AuthContext from '../../context/auth-context'; 
 
 // class Card extends Component {
 
@@ -30,6 +31,7 @@ const Card = (props) => {
 
     const [counter, setCounter] = useState(0);
     const plusBtn = useRef(null);  
+    const authContext = useContext(AuthContext); 
 
     useEffect(() => {
         console.log(plusBtn);
@@ -37,6 +39,7 @@ const Card = (props) => {
         //     console.log(plusBtn.current, "hi");
         //     plusBtn.current.click(); 
         // }, 10);
+        console.log('FROM FUNCTIONAL: ', authContext);
         return () => {
 
         }

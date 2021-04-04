@@ -6,7 +6,7 @@ const AddCard = (props) => {
     useEffect(() => {
         console.log('[AddCard.js] useEffect (componentDidMount)'); 
         setTimeout(() => {
-            alert('Saved to DB [ADD CARD]');
+            // alert('Saved to DB [ADD CARD]');
         }, 1000);
     }, []); 
 

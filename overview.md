@@ -58,3 +58,40 @@ Refer:
 
 - To get rid of outer `<div>` 
 - Replace the outer most div to `<React.Fragment>`
+
+### React Context
+
+- **In JSX**
+    - Create `rijin/learn-react-6.1/src/context/auth-context.js`
+    - Use that in `rijin/learn-react-6.1/src/container/App.js` as `<AuthContext.Provider>`
+    - Pass the values in that to get the values in the sub-sub components
+    - To use the context in the sub-sub component, Use `<AuthContext.Consumer>`
+    - Within that tag, Call the JSX in a function with context as an argument
+
+```javascript
+<AuthContext.Consumer>
+    {(context) => {<JSX CODE>}}
+</AuthContext.Consumer>
+```
+
+- **In class based life cycle**
+
+```javascript
+import AuthContext from '../context/auth-context'; 
+...
+static contextType = AuthContext; 
+... 
+**In ComponentDidMount**, 
+console.log(this.context); 
+```
+
+- **In functional components**
+
+```javascript
+import {useContext} from 'react'; 
+...
+const authContext = useContext(AuthContext); 
+...
+**In useEffect**, 
+console.log('FROM FUNCTIONAL: ', authContext);
+```
