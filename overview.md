@@ -2,32 +2,30 @@
 
 ### Class based components: 
 
-    - Component Lifecycle: 
-        - Mount: 
+- Component Lifecycle: 
+    - Mount: 
+        - `constructor ()`
+        - `getDerivedStateFromProps()`
+        - `render()`
+        - `componentDidMount()`
 
-            - `constructor ()`
-            - `getDerivedStateFromProps()`
-            - `render()`
-            - `componentDidMount()`
-
-        - Update: 
-
-            - `constructor()`
-            - `shouldComponentUpdate()`
-            - `render()`
-            - `getSnapshotBeforeUpdate()`
-            - `componentDidUpdate()`
+    - Update: 
+        - `constructor()`
+        - `shouldComponentUpdate()`
+        - `render()`
+        - `getSnapshotBeforeUpdate()`
+        - `componentDidUpdate()`
 
 ### Functional Components
 
-    - `useState()`: Equivalent to `state = {}` from Class Based
-    - `useEffect()`: Life-Cycle for functional components
-    - ```
-        const [item, setItem] = useState(0); 
-        useEffect(() => {
-            console.log("Mount"); 
-            return () => {
-                console.log("Unmount"); 
-            }
-        }, []); 
-    ```
+- `useState()`: Equivalent to `state = {}` from Class Based
+- `useEffect()`: Life-Cycle for functional components
+```
+const [item, setItem] = useState(0); 
+useEffect(() => {
+    console.log("Mount"); 
+    return () => {
+        console.log("Unmount"); 
+    }
+}, []); 
+```
