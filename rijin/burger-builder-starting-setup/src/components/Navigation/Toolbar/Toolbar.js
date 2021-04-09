@@ -7,8 +7,8 @@ import classes from './Toolbar.css';
 const toolbar = (props) => {
     return (
         <header className={classes.Toolbar}>
-            <div>MENU</div>
-            <Logo></Logo>
+            <div onClick={props.openSideDrawer}>MENU</div>
+            <Logo height="80%"/>
             <NavigationItems/>
         </header>
     );
