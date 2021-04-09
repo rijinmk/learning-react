@@ -9,22 +9,21 @@ class FullPost extends Component {
         loadedPost: null
     }
 
-    async componentDidUpdate(prevProps){
-        console.log(prevProps);
-        if (prevProps.id !== this.props.id){
-            let data = await axios.get(`https://jsonplaceholder.typicode.com/posts/${this.props.id}`);
-            this.setState({loadedPost: data.data}); 
-        }
+    async componentDidMount(prevProps){
+        let data = await axios.get(`https://jsonplaceholder.typicode.com/posts/${this.props.match.params.id}`);
+        console.log("data...", data); 
+        this.setState({loadedPost: data.data}); 
     }
     
     deletePostHandler = async () => {
-        let deleting = await axios.delete(`https://jsonplaceholder.typicode.com/posts/${this.props.id}`);
+        let deleting = await axios.delete(`https://jsonplaceholder.typicode.com/posts/${this.props.match.params.id}`);
         console.log(deleting);
     }
 
     render () {
+        console.log(this.props.match.params.id);
         let post = <p style={{textAlign: "center"}}>Please select a Post!</p>;
-        if (this.props.id){
+        if (this.props.match.params.id){
             <p style={{ textAlign: "center" }}>Loading..</p>
         }
         if(this.state.loadedPost){

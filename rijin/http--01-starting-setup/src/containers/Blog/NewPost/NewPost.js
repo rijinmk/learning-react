@@ -11,7 +11,11 @@ class NewPost extends Component {
 
     postDataHandler = async () => {
         let posting = await axios.post('https://jsonplaceholder.typicode.com/posts', {title: this.state.title,body: this.state.content,author: this.state.author}); 
-        console.log(posting);
+        // console.log(posting);
+    }
+
+    componentDidMount(){
+        // console.log(this.props); 
     }
 
     render () {

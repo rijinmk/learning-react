@@ -1,45 +1,40 @@
 import React, { Component } from 'react';
 
 import Post from '../../components/Post/Post';
-import FullPost from '../../components/FullPost/FullPost';
-import NewPost from '../../components/NewPost/NewPost';
+import FullPost from './FullPost/FullPost';
+import NewPost from './NewPost/NewPost';
 import axios from 'axios'; 
 import './Blog.css';
+import Posts from '../Blog/Posts/Posts';
+import { Route, NavLink, Switch } from 'react-router-dom'; 
 
 class Blog extends Component {
-
-    state = {
-        posts: [], 
-        selectedPostID: null, 
-    }
-
-    async componentDidMount(){
-        let data = await axios.get('https://jsonplaceholder.typicode.com/posts');
-        this.setState({posts: data.data.slice(0,4)}); 
-    }
-
-    postSelectedHandler (id) {
-        console.log(id);
-        this.setState({selectedPostID: id}); 
-    }
-
     render () {
-
-        const post = this.state.posts.map(post => {
-            return <Post clicked={() => {this.postSelectedHandler(post.id)}} key={post.id} title={post.title} />
-        }); 
-
         return (
             <div>
-                <section className="Posts">
-                    {post}
-                </section>
-                <section>
-                    <FullPost id={this.state.selectedPostID} />
-                </section>
-                <section>
-                    <NewPost />
-                </section>
+
+                <header>
+                    <nav>
+                        <ul>
+                            <li><NavLink exact to="/">Home</NavLink></li>
+                            <li><NavLink to={{
+                                pathname: '/new-post', 
+                                hash: '#submit', 
+                                search: '?q=hello'
+                            }}>New Post</NavLink></li>
+                        </ul>
+                    </nav>
+                </header>
+
+                {/* <Route path="/" exact render={() => { return <h1>HELLO</h1> }} />
+                <Route path="/new-post" render={() => { return <h1>NEW POST</h1> }} /> */}
+                
+                <Switch>
+                    <Route path="/" exact component={Posts}></Route>
+                    <Route path="/new-post" exact component={NewPost}></Route>
+                    <Route path="/:id" exact component={FullPost}></Route>
+                </Switch>
+
             </div>
         );
     }
