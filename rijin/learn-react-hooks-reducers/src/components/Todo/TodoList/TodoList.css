@@ -1,0 +1,15 @@
+.todo--list{
+    border:1px solid red;
+}
+
+.todo--list li{
+    border:1px solid red;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo--list li span{
+    border:1px solid green;
+    padding:4px;
+    border-radius: 50%;
+}
