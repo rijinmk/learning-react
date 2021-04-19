@@ -1,8 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import AutoSuggest from './AutoSuggest/AutoSuggest';
+import { MultipurposeContext } from '../../MultipurposeContext';
 
 export const Search = () => {
 
     const [breed, setBreed] = useState(''); 
+    const [autoSuggestList, setAutoSuggestList] = useState([]); 
+    const ctx = useContext(MultipurposeContext);
     const searchRef = useRef(); 
 
     useEffect(() => {
@@ -17,8 +21,8 @@ export const Search = () => {
                     },
                 );
                 dogs = await dogs.json();
-                console.clear(); 
-                console.log("[Dog.js]: ", dogs);
+                console.log(dogs); 
+                setAutoSuggestList(dogs);
             })()
         }, 500); 
 
@@ -29,12 +33,14 @@ export const Search = () => {
     }, [breed]);
 
     const searchHandler = () => {
+        ctx.setSelectedDogHandler(null); 
         setBreed(searchRef.current.value);
     }
 
     return (
         <div>
             <input type="text" ref={searchRef} onChange={searchHandler} placeholder="Search Breed..."/>
+            <AutoSuggest searchResult={autoSuggestList} />
         </div>
     )
 }

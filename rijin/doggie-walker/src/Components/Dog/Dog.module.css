@@ -1,0 +1,8 @@
+.Dog{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Dog img{
+    width:50%;
+}
