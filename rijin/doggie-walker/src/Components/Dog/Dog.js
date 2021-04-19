@@ -13,7 +13,7 @@ export const Dog = (props) => {
             <img src={`https://cdn2.thedogapi.com/images/${props.reference_image_id}.jpg`} alt=""/>
             <div>
                 <p>{props.temperament}</p>
-                <p>Weight: {props.weight.metric}</p>
+                <p>Weight (in KG): {props.weight.metric}</p>
             </div>
         </div>
     )

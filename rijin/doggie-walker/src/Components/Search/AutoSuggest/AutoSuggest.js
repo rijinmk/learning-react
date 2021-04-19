@@ -3,6 +3,8 @@ import { Link, BrowserRouter as Router } from "react-router-dom";
 import AutoSuggestItem from "./AutoSuggestItem/AutoSuggestItem"
 import { MultipurposeContext } from '../../../MultipurposeContext'; 
 
+import classes from './AutoSuggest.module.css'; 
+
 const AutoSuggest = (props) => {
 
     let [_autoSuggestItemJSX, setAutoSuggestItemJSX] = useState([]); 
@@ -35,7 +37,7 @@ const AutoSuggest = (props) => {
 
     return(
         <Router>
-            <ul>
+            <ul className={classes.AutoSuggestList}>
                 {_autoSuggestItemJSX}
             </ul>
         </Router>

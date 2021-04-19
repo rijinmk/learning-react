@@ -1,0 +1,6 @@
+.AutoSuggestList{
+    color:green;
+    height:auto;
+    max-height:200px;
+    overflow-y: scroll;
+}
