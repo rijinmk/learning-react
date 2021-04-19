@@ -11,7 +11,7 @@ export const Weather = () => {
                 let latitude = position.coords.latitude; 
                 let longitude = position.coords.longitude; 
 
-                let weatherData = await fetch(`http://api.openweathermap.org/data/2.5/weather?units=metric&lat=${latitude}&lon=${longitude}&appid=d96fd08f487348c0277372130a6ab12e`);
+                let weatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${latitude}&lon=${longitude}&appid=d96fd08f487348c0277372130a6ab12e`);
                 weatherData = await weatherData.json(); 
                 console.log(weatherData);
                 setWeatherDataState(weatherData);
