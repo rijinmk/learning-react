@@ -8,7 +8,6 @@ const FormSignUp = () => {
     return(
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="username" onChange={handleChange} placeholder="username"/> <br/>
                 <label htmlFor="">username</label>
                 <input type="text" onChange={handleChange} name="username"/>
                     {errors.username && errors.username}
