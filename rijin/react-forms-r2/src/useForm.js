@@ -1,9 +1,8 @@
 import { useState } from 'react'; 
 
 const useForm = (validate) => {
-    
     const [errors, setErrors] = useState({});
-    
+
     const [values, setValues] = useState({
         username: '',
         email: '',
@@ -12,20 +11,22 @@ const useForm = (validate) => {
     });
 
     const handleChange = (e) => {
-        let { name, value } = e.target; 
-        console.log({...values, [name]: value});
-        setValues({ ...values, [name]: value });
+        let {name, value} = e.target; 
+        console.log({ ...values, [name]: value });
+        setValues({...values, [name]: value}); 
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
         console.log(validate(values));
-        setErrors(validate(values));
-    } 
+        setErrors(validate(values)); 
+    }
 
-    return{
+
+
+    return {
         handleChange, 
-        handleSubmit,
+        handleSubmit, 
         errors
     }
 }

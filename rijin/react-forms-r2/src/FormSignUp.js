@@ -1,33 +1,35 @@
-import useForm from './useForm';
-import validate from './validateValues'; 
+import useForm from "./useForm";
+import validateValues from "./validateValues";
 
 const FormSignUp = () => {
 
-    const { handleChange, handleSubmit, errors } = useForm(validate); 
+    let { handleChange, handleSubmit, errors } = useForm(validateValues);
 
     return(
         <div>
             <form onSubmit={handleSubmit}>
-                <label>username</label>
                 <input type="text" name="username" onChange={handleChange} placeholder="username"/> <br/>
-                {errors.username && errors.username} <br/>
-                
-                <label>email</label>
-                <input type="text" name="email" onChange={handleChange} placeholder="email"/> <br/>
-                {errors.email && errors.email} <br/>
-
-                <label>password</label>
-                <input type="text" name="password" onChange={handleChange} placeholder="password"/> <br/>
-                {errors.password && errors.password} <br/>
-
-                <label>confirmPassword</label>
-                <input type="text" name="confirmPassword" onChange={handleChange} placeholder="confirmPassword"/> <br/>
-                {errors.confirmPassword && errors.confirmPassword} <br/>
-
-                <button types="submit">Sign Up</button>
+                <label htmlFor="">username</label>
+                <input type="text" onChange={handleChange} name="username"/>
+                    {errors.username && errors.username}
+                <br/>
+                <label htmlFor="">email</label>
+                <input type="text" onChange={handleChange} name="email"/>
+                    {errors.email && errors.email}
+                <br/>
+                <label htmlFor="">password</label>
+                <input type="text" onChange={handleChange} name="password"/>
+                    {errors.password && errors.password}
+                <br/>
+                <label htmlFor="">confirmPassword</label>
+                <input type="text" onChange={handleChange} name="confirmPassword"/>
+                    {errors.confirmPassword && errors.confirmPassword}
+                <br/>
+                <button type="submit">sign up</button>
             </form>
-        </div>
-    ); 
+        </div>        
+    );
 }
+
 
 export default FormSignUp; 
